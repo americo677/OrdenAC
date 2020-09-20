@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    //using OrdenAC.Models.Objects;
+}
+
+
+<form action="" method="GET">
+
+    <div align="center">
+        <table border=1 width=50%>
+            <tr>
+                <td width=20%>Orden No.: </td>
+                <td width=80%>99</td>
+            </tr>
+            <tr>
+                <td>Fecha de registro:</td>
+                <td>@{DateTime hoy = DateTime.Now;}
+                @hoy
+                </td>
+            </tr>
+            <tr>
+                <td>Oficina de Venta:</td>
+                <td>
+                    <select name="oficina" id="oficinaid">
+                        @{
+
+                            OrdenAC.Models.Objects.OficinaVenta[] oficinas = OrdenAC.Models.Objects.Singleton.SingletonOficinas.GetLista();
+
+                            for (int item=0; item < oficinas.Length; item++)
+                            {
+                                <option value="@oficinas[item].OficinaVentaId">@oficinas[item].Nombre</option>
+                            }
+
+                        }
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td>Cliente:</td>
+                <td>
+                    <input type="text" name="cliente" id="clienteid" placeholder="Cliente">
+                </td>
+            </tr>
+            <tr>
+                <td>Item</td>
+                <td>
+                    <input type="text" name="item" id="itemid" placeholder="Item">
+                </td>
+            </tr>
+        </table>
+        <p>
+            <div align="center">
+                <table border=0 width=50%>
+                    <tr>
+                        <td align="center">
+                            <input type="button" value="Guardar" onclick="<script>alert('Sin implmentar')</script>">
+                        </td>
+                        <td align="center">
+                            <input type="button" value="Cancelar" onclick="<script>alert('Sin implmentar')</script>">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </p>
+
+    </div>
+
+</form>
